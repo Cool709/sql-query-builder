@@ -7,14 +7,14 @@ import { ArrowDownward as SortIcon } from '@material-ui/icons';
 
 import { Container, Card } from '@material-ui/core';
 
-import { getRandomInteger, apiUrls } from '../helpers/helper';
+import { getRandomInteger } from '../utils/helper';
+import { apiUrls } from '../utils/constants';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { customTableStyle } from '../helpers/use-style';
+import { customTableStyle } from '../utils/styles';
 
-import { Header, Footer } from '../layouts';
 import { LinearProgressBar } from '../components/linear-progress-bar';
-import { EditQueryField } from '../components/edit-query-field';
+import { QueryInput } from '../components/query-input';
 
 const useStyle = makeStyles(() => ({
   root: {
@@ -37,17 +37,17 @@ const Home = () => {
 
   const [data, setData] = useState([]);
 
-  const [sql, setSql] = useState('Select * from customers;');
+  const [query, setQuery] = useState('Select * from customers;');
 
   const [recentQueries, setRecentQueries] = useState(['Select * from customers;']);
 
   const manageRecentQueries = () => {
-    if (!recentQueries.includes(sql)) {
-      setRecentQueries([...recentQueries, sql]);
+    if (!recentQueries.includes(query)) {
+      setRecentQueries([...recentQueries, query]);
     }
   };
 
-  const renderQueryResult = () => {
+  const executeQuery = () => {
     manageRecentQueries();
     fetch(apiUrls[getRandomInteger(4)])
       .then((response) => response.json())
@@ -71,20 +71,19 @@ const Home = () => {
   };
 
   useEffect(() => {
-    renderQueryResult();
+    executeQuery();
   }, []);
 
   return (
     <div className="main">
-      <Header />
       <Container className={classes.root}>
-        <EditQueryField
-          sql={sql}
-          setSql={(val) => setSql(val)}
-          queryListOpen={queryListOpen}
-          handleQueryListOpen={(open) => setQueryListOpen(open)}
+        <QueryInput
+          query={query}
+          setQuery={(val) => setQuery(val)}
+          queryListOpened={queryListOpen}
+          collapseQueryList={(open) => setQueryListOpen(open)}
           recentQueries={recentQueries}
-          renderQueryResult={() => renderQueryResult()}
+          executeQuery={() => executeQuery()}
         />
         <Card>
           <DataTable
@@ -99,7 +98,6 @@ const Home = () => {
           />
         </Card>
       </Container>
-      <Footer />
     </div>
   );
 };

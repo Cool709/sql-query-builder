@@ -1,8 +1,4 @@
 /* eslint-disable prettier/prettier */
-export const getRandomInteger = (max) => {
-  return Math.floor(Math.random() * max);
-};
-
 export const apiUrls = [
   'https://jsonplaceholder.typicode.com/comments',
   'https://jsonplaceholder.typicode.com/posts',

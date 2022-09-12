@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
+import { Layout } from './layouts';
 import Home from './pages/home';
 import reportWebVitals from './reportWebVitals';
 
@@ -8,7 +9,10 @@ const root = document.getElementById('root');
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Layout>
+      {/* todo: add router */}
+      <Home />
+    </Layout>
   </React.StrictMode>,
   root
 );
