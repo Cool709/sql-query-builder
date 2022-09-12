@@ -2,17 +2,33 @@
 
 ## Project Name
 
+<pre>
 SQL Query Builder - Test Assignment (Dummy Application)
 One Page Application
+</pre>
 
 ## Tech Skills Which This Project Uses
 
+<pre>
 Framework: ReactJS (16.12.0)
 CSS Library: Material UI
 Used Plugins: react-data-table-component, prettier, eslint
 Data Source Api: https://jsonplaceholder.typicode.com/
+</pre>
 
 ## Page Load Time
+
+<pre>
+Page Load Time measured by https://tools.pingdom.com/
+</pre>
+
+### Measured Result:
+
+<pre>
+Page Load Time: 212 ms
+Page Size: 178.1 KB
+Performance Grade: 94 (A)
+</pre>
 
 ## Available Scripts
 
