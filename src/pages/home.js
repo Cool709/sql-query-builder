@@ -16,32 +16,13 @@ import { Header, Footer } from '../layouts';
 import { LinearProgressBar } from '../components/linear-progress-bar';
 import { EditQueryField } from '../components/edit-query-field';
 
-const useStyle = makeStyles((theme) => ({
+const useStyle = makeStyles(() => ({
   root: {
     marginTop: '15px',
     marginBottom: '15px',
     display: 'flex',
     flexDirection: 'column',
     gap: '10px'
-  },
-  appBar: {
-    backgroundColor: '#000'
-  },
-  progress: {
-    width: '100%',
-    '& > * + *': {
-      marginTop: theme.spacing(2),
-      marginBottom: '20px'
-    }
-  },
-  queryContainer: {
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '10px'
-  },
-  nested: {
-    paddingLeft: '40px'
   }
 }));
 
